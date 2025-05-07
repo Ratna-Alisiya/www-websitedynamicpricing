@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Smart Packaging Rendang</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://unpkg.com/html5-qrcode" type="text/javascript"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div class="container">
+    <h1>Scan QR Label Indikator</h1>
+    <div id="reader" style="width:300px"></div>
+    <div id="quality" class="quality-box"></div>
+    <div id="product-status"></div>
+
+    <canvas id="phChart" width="400" height="200"></canvas>
+
+    <h2>Riwayat Scan</h2>
+    <table border="1" width="100%" style="border-collapse: collapse;">
+      <thead>
+        <tr>
+          <th>No</th>
+          <th>pH</th>
+          <th>Suhu</th>
+          <th>Status</th>
+          <th>Waktu</th>
+        </tr>
+      </thead>
+      <tbody id="history-body"></tbody>
+    </table>
+    <br>
+    <button onclick="exportCSV()">Ekspor CSV</button>
+
+    <div id="generator">
+      <h2>Generate QR dari Nilai RGB</h2>
+      <input type="number" id="r" placeholder="R (0-255)" min="0" max="255">
+      <input type="number" id="g" placeholder="G (0-255)" min="0" max="255">
+      <input type="number" id="b" placeholder="B (0-255)" min="0" max="255">
+      <button onclick="generateQR()">Buat QR</button>
+      <canvas id="qrCanvas"></canvas>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
